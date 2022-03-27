@@ -1,4 +1,12 @@
 ### sharding-jdbc 使用雪花算法
+#### 1、数据库准备
+    CREATE TABLE `t_order_0` (
+      `id` bigint(20) NOT NULL COMMENT '主键不自增也可以，leaf算法会设置',
+      `title` varchar(255) NOT NULL,
+      `user_id` bigint(20) NOT NULL,
+      PRIMARY KEY (`id`) USING BTREE
+    ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+#### 2、配置    
     # 生命ShardingSphere的数据源
     spring.shardingsphere.datasource.names=ds0,ds1
     
